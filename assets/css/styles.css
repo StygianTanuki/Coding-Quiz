@@ -1,7 +1,13 @@
     :root {
       --purple: #800080;
-      --green: #008000;
+      --pink: #ff4fff;
+      --darkpink: #ED32ED;
+      --green: #39A102;
+      --lightgreen: #73ED32;
+
     }
+
+    
     
     body {
     font-family: Arial;
@@ -47,6 +53,7 @@
     padding: 40px;
     text-align: center;
     border-bottom:30px #879274;
+    font-size: 25px;
   }
 
   h1 {
@@ -82,7 +89,7 @@
   }
   
   .card {
-    background: radial-gradient(circle, rgba(240,230,140,1) 0%, rgba(187,124,33,0.604079131652661) 100%);
+    background: radial-gradient(circle, var(--pink) 0%, white 100%);
     border: 1px solid #eceff1;
     border-radius: 8px;
     box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
