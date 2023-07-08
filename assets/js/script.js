@@ -1,41 +1,32 @@
-var timeEl = document.querySelector(".times");
+var timeEl = document.querySelector("countdown");
 var mainEl = document.getElementById("main");
-var myQuestions
+var myQuestions;
+var timeLeft;
+var timeInterval;
+var answerCorrect;
+var answerIncorrect;
 
-var secondsLeft = 10;
+var startBtn = document.querySelector("#startQuiz");
 
-function setTime() {
-  // Sets interval in variable
-  var timerInterval = setInterval(function() {
-    secondsLeft--;
-    timeEl.textContent = secondsLeft + " seconds left till colorsplosion.";
+function countdown() {
 
-    if(secondsLeft === 0) {
-      // Stops execution of action at set interval
-      clearInterval(timerInterval);
-      // Calls function to create and append image
-      sendMessage();
-    }
+  timeLeft = 60;
+
+  timeInterval = setInterval(function () {
+
+    timerElement.textContent = "Time: " + timeLeft;
+
+   if (timeLeft <= 0) {
+    countdown();
+  }
+
+  timeLeft--;
 
   }, 1000);
 }
 
-const myQuestions = [
-    {
-        question: "Commonly used data types DO not include:"
-        choices: {"strings", "booleans", "alerts", "numbers"},
-        answer: ""
-    }
+function startQuiz () {
 
-    {
-        question:
-        choices:
-        answer:
-    }
-
-    {
-        question:
-        choices:
-        answer:
-    }
-]
+}
+startBtn.addEventListener("click", startQuiz);
+init();

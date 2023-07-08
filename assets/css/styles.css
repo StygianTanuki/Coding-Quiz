@@ -4,10 +4,7 @@
       --darkpink: #ED32ED;
       --green: #39A102;
       --lightgreen: #73ED32;
-
     }
-
-    
     
     body {
     font-family: Arial;
@@ -18,20 +15,47 @@
     justify-content: flex-start;
     background: linear-gradient(0deg, var(--purple) 0%, rgba(237,245,249,1) 63%);
   }
+
   
-  .reset-button {
-    font-size: 16px;
-    height: 30px;
-    line-height: 8px;
-    margin-top: 20px;
+  header {
+    padding: 40px;
+    text-align: center;
+    border-bottom:30px #879274;
+    font-size: 25px;
+  }
+
+  card-header {
+    text-align: center;
+    font-size: 20px;
+  }
+
+  h1 {
+    text-align: left;
+  }
+
+  h2 {
+    text-align: right;
+  }
+
+  h3 {
+    text-align: center;
+    font-size: 50px;
   }
   
-  .win-loss-container {
+  main {
     display: flex;
-    justify-content: space-between;
-    margin-top: 16px;
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
   
+  section {
+    flex: 0 auto;
+    padding: 8px;
+    margin-top: 50px;
+    background-color: white;
+    border-radius: 8px;
+  }
+
   button {
     background: var(--green);
     border-radius: 8px;
@@ -48,36 +72,13 @@
     transition-timing-function: linear;
     margin-top: 0.6em;
   }
-  
-  header {
-    padding: 40px;
-    text-align: center;
-    border-bottom:30px #879274;
-    font-size: 25px;
-  }
 
-  h1 {
-    text-align: left;
-  }
-
-  h2 {
-    text-align: right;
-  }
-  
-  main {
+  .win-loss-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-top: 16px;
   }
-  
-  section {
-    flex: 0 auto;
-    padding: 8px;
-    margin-top: 50px;
-    background-color: white;
-    border-radius: 8px;
-  }
-  
+
   .word-guess {
     width: 55vw;
     height: 400px;
@@ -88,17 +89,7 @@
     height: 400px;
   }
   
-  .card {
-    background: radial-gradient(circle, var(--pink) 0%, white 100%);
-    border: 1px solid #eceff1;
-    border-radius: 8px;
-    box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
-      rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
-    margin: auto;
-    padding: 20px;
-  }
-  
-  
+    
   .large-font {
     font-size: 3.5em;
     text-align:center;
@@ -115,7 +106,11 @@
   .timer-text {
     padding: 55px;
   }
-  
+    
+  .timer {
+      height: 200px;
+  }
+
   @media screen and (max-width: 1183px) {
     main {
       flex-direction: column;
@@ -138,13 +133,3 @@
       font-size: 2em;
     }
 }
-  
-    .reset-button {
-      font-size: 12px;
-      width: 20ox;
-      
-    }
-  
-    .timer {
-      height: 200px;
-    }
