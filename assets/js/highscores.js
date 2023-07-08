@@ -3,6 +3,7 @@ var formInput = document.querySelector("#initials");
 var currentScores;
 var scoresBox = document.querySelector("#scoresBox");
 
+// This collects the scores from the original script
 function showScores () {
     scoresBox.innerHTML = "";
 
@@ -29,7 +30,7 @@ if (JSON.parse(localStorage.getItem("new-score")) == -1){
     showScores();
 }
 
-
+//This allows for someone to submit their score with their initials
 form.addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -41,6 +42,7 @@ form.addEventListener("submit", function(event) {
 
     let newScore = JSON.parse(localStorage.getItem("new-score"))
 
+    //This helps display the score and intial together.
     let newObject = {
         initials: formInput.value.trim(),
         score: newScore

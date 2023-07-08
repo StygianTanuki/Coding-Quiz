@@ -18,31 +18,13 @@ var answerIncorrect;
 
 var startBtn = document.querySelector("#startQuiz");
 
-
-
-function countdown() {
-
-  timeLeft = 60;
-
-  timeInterval = setInterval(function () {
-
-    timeEl.textContent = "Time: " + timeLeft;
-
-   if (timeLeft <= 0) {
-    clearInterval(timeInterval);
-    localStorage.setItem("new-score", -1);
-
-    window.location.href = "highscores.html";
-  }
-
-  timeLeft--;
-
-  }, 1000);
-}
-
+// Hides both the question card and end card when not in use
 questionEl.style.display = "none";
 endEl.style.display = "none";
 
+// Allows the countodown to begin when the button is pressed and shows how much time is left
+
+//Starts the process for the entire quiz
 function startQuiz () {
   countdown ();
 
@@ -53,6 +35,29 @@ function startQuiz () {
   loadQues ()
 }
 
+function countdown() {
+  timeLeft = 60;
+  timeInterval = setInterval(function () {
+
+    timeEl.textContent = "Time: " + timeLeft;
+
+    // Records the time left and stores it
+   if (timeLeft <= 0) {
+    clearInterval(timeInterval);
+    localStorage.setItem("new-score", -1);
+
+    // This is recorded into the highscores.html
+    window.location.href = "highscores.html";
+  }
+
+  timeLeft--;
+
+  }, 1000);
+}
+
+
+
+// Question array with the answers. This shows which answer is correct out of the choices as well.
 const Questions = [{
   q: "Commonly used data types DO not include:",
   a: [{text: "strings", isCorrect: false},
@@ -90,14 +95,18 @@ a: [{text: "numbers and strings", isCorrect: false},
   }
 ]
 
+// This allows the current question and score to be at 0 before the game starts
 let currQuestion = 0
 let score = 0
 
+//This loads the questions line by line and matches with its answers
 function loadQues() {
   questionCardEl.innerHTML = "";
 
+  // This shows the current questions
   let current = Questions [ currQuestion];
 
+  //This displays the current question in the h2
   let questionHeader = document.createElement("h2");
   questionHeader.setAttribute("class", "question-header");
   questionHeader.textContent = current.q;
@@ -105,6 +114,8 @@ function loadQues() {
   let questionList = document.createElement("ul");
   questionList.setAttribute("class", "question-footer");
 
+  
+  // This allows the answers to be put onto the screen with their own buttons. The buttons populate with however many there are
   for(let i = 0; i < current.a.length; i++) {
     let answerItem = document.createElement("button");
     answerItem.textContent = current.a[i].text;
@@ -119,6 +130,7 @@ function loadQues() {
   questionCardEl.appendChild(questionList);
 }
 
+//This allows for each time the button is clicked to be recorded
   questionCardEl.addEventListener("click", function(event) {
     let element = event.target;
 
@@ -127,7 +139,8 @@ function loadQues() {
     }
     let isCorrect = element.getAttribute("data-isCorrect");
 
-
+    //This shows that if the answer chosen is correct it will be show the Correct response
+    // However, if the answer was incorrect it will deisplay the other repsonse
     if (isCorrect === "true") {
       isCorrectEl.textContent = "Correct!"
     } else {
@@ -135,22 +148,27 @@ function loadQues() {
       timeLeft -= 10;
     }
 
+    // This keeps track of what question the game is on
     currQuestion++;
     if(currQuestion < Questions.length) {
       loadQues();
+      //If there are no more questions the game will end
     } else {
       endQuiz();
     }
   })
 
+  //This will show the endQuiz function and allow the other screen to clear
 function endQuiz (){
   endEl.style.display = "block"
   clearInterval(timeInterval)
   localStorage.setItem("new-score", timeLeft);
   
+  //The logged information will be put into the highscores html
   window.location.href = "highscores.html";
 }
 
+// This button is for the highscores button so you are able to click and view the current high scores
 highScoresEl.addEventListener("click", function() {
   clearInterval(timeInterval);
   localStorage.setItem("new-score", -1);
@@ -158,4 +176,5 @@ highScoresEl.addEventListener("click", function() {
   window.location.href = "highscores.html";
 })
 
+// This allows for the game to start
 startBtn.addEventListener("click", startQuiz);

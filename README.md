@@ -7,5 +7,8 @@ This website was created to help test the knowledge of coders in a fun minigame.
 
 Click the button to begin the prompts for the Quiz.
 
-![Screenshot of Website](./Assets/Images/Website-Prompt-New.png)
-![Screenshot of Website](./Assets/Images/_C__Users_Felix_Documents_UCF_Homework_Homework_3_Password-Generator_Develop_index.html.png)
+![Screenshot of Website](./Assets/Images/Quiz%20start.png)
+![Screenshot of Website](./Assets/Images/Quiz.png)
+
+# Link
+https://stygiantanuki.github.io/Coding-Quiz/
