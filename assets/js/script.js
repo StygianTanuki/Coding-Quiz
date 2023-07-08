@@ -4,6 +4,8 @@ var startEl = document.querySelector("#startBox");
 var endEl = document.querySelector("#endScreen");
 var isCorrectEl = document.querySelector("#isCorrect");
 
+var highScoresEl = document.querySelector("#scoreHigh");
+
 var questionEl = document.querySelector("#quizBox");
 var questionCardEl = document.querySelector("#questionCard")
 
@@ -16,6 +18,8 @@ var answerIncorrect;
 
 var startBtn = document.querySelector("#startQuiz");
 
+
+
 function countdown() {
 
   timeLeft = 60;
@@ -26,6 +30,9 @@ function countdown() {
 
    if (timeLeft <= 0) {
     clearInterval(timeInterval);
+    localStorage.setItem("new-score", -1);
+
+    window.location.href = "highscores.html";
   }
 
   timeLeft--;
@@ -119,10 +126,12 @@ function loadQues() {
       return;
     }
     let isCorrect = element.getAttribute("data-isCorrect");
-    if (isCorrect) {
+
+
+    if (isCorrect === "true") {
       isCorrectEl.textContent = "Correct!"
     } else {
-      isCorrectEl.textContent = "incorr";
+      isCorrectEl.textContent = "Incorrect.";
       timeLeft -= 10;
     }
 
@@ -142,5 +151,11 @@ function endQuiz (){
   window.location.href = "highscores.html";
 }
 
+highScoresEl.addEventListener("click", function() {
+  clearInterval(timeInterval);
+  localStorage.setItem("new-score", -1);
+
+  window.location.href = "highscores.html";
+})
 
 startBtn.addEventListener("click", startQuiz);

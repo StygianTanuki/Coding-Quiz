@@ -57,13 +57,26 @@
     border-radius: 8px;
   }
 
+  #startBox {
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #ul_scoresBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
   button {
-    display: inline-block;
+    /* display: inline-block; */
     background: var(--green);
     border-radius: 8px;
     color: #13293d;
     cursor: pointer;
-    font-size: 2em;
+    font-size: 20px;
     letter-spacing: 0.21px;
     line-height: 16px;
     max-width: 255px;
