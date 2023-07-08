@@ -1,5 +1,10 @@
-var timeEl = document.querySelector("countdown");
-var mainEl = document.getElementById("main");
+var timeEl = document.querySelector("#countdown");
+var mainEl = document.querySelector("main");
+var startEl = document.querySelector("#startBox");
+
+var questionEl = document.querySelector("#quizBox");
+
+
 var myQuestions;
 var timeLeft;
 var timeInterval;
@@ -14,10 +19,10 @@ function countdown() {
 
   timeInterval = setInterval(function () {
 
-    timerElement.textContent = "Time: " + timeLeft;
+    timeEl.textContent = "Time: " + timeLeft;
 
    if (timeLeft <= 0) {
-    countdown();
+    clearInterval(timeInterval);
   }
 
   timeLeft--;
@@ -25,8 +30,14 @@ function countdown() {
   }, 1000);
 }
 
+
+
 function startQuiz () {
+  countdown ();
+
+  startEl.style.display = "none"
+
 
 }
+
 startBtn.addEventListener("click", startQuiz);
-init();
