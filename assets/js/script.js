@@ -1,6 +1,7 @@
 var timeEl = document.querySelector("#countdown");
 var mainEl = document.querySelector("main");
 var startEl = document.querySelector("#startBox");
+var endEl = document.querySelector("#endScreen");
 
 var questionEl = document.querySelector("#quizBox");
 
@@ -30,14 +31,52 @@ function countdown() {
   }, 1000);
 }
 
-
+questionEl.style.display = "none";
+endEl.style.display = "none";
 
 function startQuiz () {
   countdown ();
 
-  startEl.style.display = "none"
+  startEl.style.display = "none";
 
+  questionEl.style.display = "block";
 
 }
+
+const Questions = [{
+  q: "sfdsf",
+  a: [{text: "a", isCorrect: false},
+    {text: "b", isCorrect: false},
+    {text: "c", isCorrect: true},
+    {text: "d", isCorrect: false}]
+},
+{
+q: "sfdsf",
+a: [{text: "a", isCorrect: false},
+  {text: "b", isCorrect: false},
+  {text: "c", isCorrect: true},
+  {text: "d", isCorrect: false}]
+},
+{
+  q: "sfdsf",
+  a: [{text: "a", isCorrect: false},
+    {text: "b", isCorrect: false},
+    {text: "c", isCorrect: true},
+    {text: "d", isCorrect: false}]
+}
+]
+
+let currQuestion = 0
+let score = 0
+
+function loadQues() {
+  const question = document.getElementById
+}
+
+function endQuiz (){
+  endEl.style.display = "block"
+
+}
+
 
 startBtn.addEventListener("click", startQuiz);
